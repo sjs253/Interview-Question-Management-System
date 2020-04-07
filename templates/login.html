@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="en">
+
+<!-- <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IQMS</title>
+    <link rel="stylesheet" href="{% static "css/login_style.css "%}">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet">
+</head> -->
+
+<head>
+	<title>IQMS</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static "img/icons/favicon.ico "%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/bootstrap/css/bootstrap.min.css"%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "fonts/font-awesome-4.7.0/css/font-awesome.min.css"%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "fonts/Linearicons-Free-v1.0.0/icon-font.min.css"%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/animate/animate.css"%}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/css-hamburgers/hamburgers.min.css"%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/animsition/css/animsition.min.css"%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/select2/select2.min.css"%}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static "vendor/daterangepicker/daterangepicker.css"%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static "css/util.css"%}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/main.css"%}">
+<!--===============================================================================================-->
+</head>
+<body>
+    <!-- <main class="container">
+        <div class="container__main">
+            <div class="container__main__header">
+                <h2>IQMS, To greatness and beyond!</h2>
+            </div>
+            <div class="container__main__form">
+                <div class="signup_container">
+                    <form class="input_container" method="POST" action="/auth/signup">
+                        {% csrf_token %}
+
+                        {% for field in signupForm.visible_fields %}
+                            {{ field }}
+                        {% endfor %}
+
+                        <input type="submit" value="SignUp">
+                    </form>
+
+                </div>
+                <div class="signin_container">
+                    <form class="input_container" method="POST" action="/auth/login">
+                        {% csrf_token %}
+
+                        {% for field in loginForm.visible_fields %}
+                            {{ field }}
+                        {% endfor %}
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main> -->
+
+    <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100" style="position: relative;">
+					<div class="login100-form validate-form">
+						<img src="{% static "img/iqms_logo.jpeg" %}" width="420" height="180">
+							<form method="POST" action="/auth/login" >
+							{% csrf_token %}
+
+								<!-- <input type="hidden" name="csrfmiddlewaretoken" value="RwT0LDSJL9e8fM550I7ASgB0Xv8DNLNNrue5H2K93AMy5Wud4eDisceysIMZdK5k"> -->
+								<input class="input100" type="email" name="email" placeholder="Email" required="" id="id_email">
+								<input class="input100" type="password" name="password" placeholder="Password" required="" id="id_password">
+								<!-- {% for field in loginForm.visible_fields %}
+									{{ field }}
+								{% endfor %} -->
+								<input class="login100-form-btn" type="submit" value="Login" padding-bottom: 2em style="background-color: #00BBE3" >
+							</form>
+				
+							<form method="POST" action="/auth/signup">
+								{% csrf_token %}
+									<input class="input100" type="text" name="name" placeholder="Name" required="" id="id_name">
+									
+									<input class="input100" type="email" name="email" placeholder="Email" required="" id="id_email">
+									<input class="input100" type="password" name="password" placeholder="Password" required="" id="id_password">
+									<input class="input100" type="password" name="password2" placeholder="Password" required="" id="id_password2">
+									
+									<input class="login100-form-btn" type="submit" value="SignUp" style="background-color: #00BBE3">
+							</form>
+
+					</div>
+
+				<div class="login100-more" style="background-image: url('../static/img/project_login.jpeg');"></div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="{% static "vendor/jquery/jquery-3.2.1.min.js"%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/animsition/js/animsition.min.js"%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/bootstrap/js/popper.js"%}"></script>
+	<script src="{% static "vendor/bootstrap/js/bootstrap.min.js"%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/select2/select2.min.js"%}"></script>
+	<script>
+		$(".selection-2").select2({
+			minimumResultsForSearch: 20,
+			dropdownParent: $('#dropDownSelect1')
+		});
+	</script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/daterangepicker/moment.min.js"%}"></script>
+	<script src="{% static "vendor/daterangepicker/daterangepicker.js"%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "vendor/countdowntime/countdowntime.js"%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static "js/main.js"%}"></script>
+</body>
+
+</html>
